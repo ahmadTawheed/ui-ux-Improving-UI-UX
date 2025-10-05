@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل شامل لتحسين تجربة المستخدم (UX) - Wireframes + Portfolios + AI tools</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #9370db;
+            --light-color: #e6d7ff;
+            --dark-color: #4b0082;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-color);
+            background-color: #f9f7ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-text) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(106, 13, 173, 0.2);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            padding: 15px 20px;
+            border: none;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .list-group-item {
+            border: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+        }
+        
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+        
+        .list-group-item i {
+            color: var(--primary-color);
+            margin-left: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(106, 13, 173, 0.3);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .bg-light-section {
+            background-color: #f3ebff;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 15px rgba(106, 13, 173, 0.2);
+        }
+        
+        .quiz-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .quiz-options {
+            margin-bottom: 30px;
+        }
+        
+        .quiz-option {
+            background-color: #f9f7ff;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--secondary-color);
+            background-color: #f3ebff;
+        }
+        
+        .quiz-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(106, 13, 173, 0.1);
+        }
+        
+        .quiz-option.correct {
+            border-color: #28a745;
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+        
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.05), rgba(147, 112, 219, 0.1));
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .result-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--light-color);
+            transform: translateY(-5px);
+        }
+        
+        .next-site-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 30px;
+            padding: 15px 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .next-site-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+            color: var(--primary-color);
+        }
+        
+        .example-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(106, 13, 173, 0.2);
+        }
+        
+        .example-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .example-body {
+            padding: 20px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .difficulty-easy {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .difficulty-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty-hard {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+        }
+        
+        .dark-mode-example {
+            background-color: #222;
+            color: #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .light-mode-example {
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            border-radius: 30px;
+            padding: 5px;
+            width: 70px;
+            margin: 0 auto;
+        }
+        
+        .theme-toggle-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle.dark .theme-toggle-icon {
+            transform: translateX(30px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-palette ms-2"></i> دليل تحسين تجربة المستخدم
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ux-tips">نصائح تحسين UX</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dark-light">الوضع الداكن والفاتح</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#saas-dashboard">لوحات تحكم SaaS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">موارد التصميم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#examples">أمثلة توضيحية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quiz">اختبار</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content" data-aos="fade-right">
+                        <h1 class="hero-title">دليل شامل لتحسين تجربة المستخدم (UX)</h1>
+                        <p class="hero-subtitle">شرح مفصّل (بلغة بسيطة + شوية عامية) عن كل ما يتعلق بتصميم تجربة المستخدم، مع أمثلة، اختبارات، ومواضيع للبحث أكثر</p>
+                        <a href="#ux-tips" class="btn btn-light btn-lg">
+                            ابدأ التعلم <i class="fas fa-arrow-left ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center" data-aos="fade-left">
+                        <i class="fas fa-user-friends" style="font-size: 15rem; opacity: 0.7;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UX Tips Section -->
+    <section id="ux-tips" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">نصائح عامة لتحسين تجربة المستخدم (UX)</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">رسائل الخطأ في حقول الإدخال</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>كن محددًا، ودودًا، وقابلاً للحل</li>
+                                <li>موقع الرسالة: inline تحت الحقل أو على يمينه</li>
+                                <li>استخدم لغة بسيطة ومباشرة</li>
+                                <li>لا تلوم المستخدم، وامنحه اقتراحًا</li>
+                                <li>استخدم أيقونة خطأ صغيرة + لون واضح</li>
+                                <li>تحقق لحظي (inline validation) إذا ممكن</li>
+                            </ul>
+                            
+                            <h6 class="mt-3">أمثلة microcopy (عربي):</h6>
+                            <ul>
+                                <li>الاسم مطلوب — اكتب اسمك كاملًا</li>
+                                <li>البريد الإلكتروني مش صحيح — حاول example@domain.com</li>
+                                <li>ضع 8 أحرف على الأقل مع رقم واحد</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">المسافة بين العناصر (spacing)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>استخدم شبكة ثنائية/قيمة أساسية (baseline grid) — مثال عملي: قاعدة 8px</p>
+                            
+                            <h6>tokens: 4px, 8px, 16px, 24px, 32px, 48px</h6>
+                            
+                            <h6 class="mt-3">قواعد سريعة:</h6>
+                            <ul>
+                                <li>بين حقول النموذج: 12–16px</li>
+                                <li>بين أقسام الصفحة: 24–48px</li>
+                                <li>بين سطرين نص (leading): 1.4–1.6 * حجم الخط</li>
+                                <li>بين عنصر وسم (label) وحقل الإدخال: 8–12px</li>
+                            </ul>
+                            
+                            <p class="mt-3">استخدم متغيرات (spacing-1, spacing-2...) في الـDesign System لتوحيد المسافات</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">حجم الخط للعناوين المختلفة</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>استخدم مقياس هرمي واضح، لا تشتت العين</p>
+                            
+                            <h6>مقياس مقترح (Base 16px):</h6>
+                            <ul>
+                                <li>H1 (صفحة/عنوان رئيسي): 32–36px (2–2.25rem)</li>
+                                <li>H2: 24–28px (1.5–1.75rem)</li>
+                                <li>H3: 18–20px (1.125–1.25rem)</li>
+                                <li>Body / نص عام: 16px (1rem)</li>
+                                <li>Small / مساعدة: 12–14px</li>
+                            </ul>
+                            
+                            <h6 class="mt-3">نصائح:</h6>
+                            <ul>
+                                <li>استخدم وزن خطوط مختلف (bold للحواشي المهمة)</li>
+                                <li>لا تنس التباعد (line-height) والـcontrast</li>
+                                <li>في الشاشات الصغيرة قلّل H1 تدريجياً</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">رسائل النجاح والانذار</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>نبرة: نجاح — إيجابي وواضح. إنذار — تحذيري ومحدد</li>
+                                <li>اللون + أيقونة + نص: لا تعتمد على اللون فقط</li>
+                                <li>نجاح: "تم حفظ الإعدادات بنجاح." + زر "عرض" إذا مناسب</li>
+                                <li>إنذار: "تنبيه: رصيدك منخفض — قم بشحن الحساب خلال 3 أيام"</li>
+                                <li>رسائل مؤقتة (toasts) للنجاحات غير الحرجة</li>
+                                <li>نوافذ بسيطة (modal) للإنذارات الحرجة</li>
+                                <li>اعطِ المستخدم خيار إغلاق أو مزيد من التفاصيل</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">الكلام واضح ومفهوم (Microcopy & Content)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>قاعدة ذهبية: اكتب للإنسان مش للمبرمج. استخدم جمل قصيرة، لفظ واضح، وابتعد عن المصطلحات الغامضة</p>
+                            
+                            <h6>هيكلة النصوص:</h6>
+                            <ul>
+                                <li>عناوين مفيدة (don't make me guess)</li>
+                                <li>أوامر واضحة على الأزرار: "احفظ" أفضل من "موافق"</li>
+                                <li>بدائل للأخطاء التقنية: "حصلت مشكلة أثناء الحفظ — جرّب مرة أخرى"</li>
+                            </ul>
+                            
+                            <p class="mt-3">اختبار قابلية الفهم: خلي أحد غير المصممين يقرأ الواجهة واستنتج ماذا يعمل كل زر</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">الصور والفيديوهات وتحسين السرعة</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>تحجيم: قدم صورًا بعدة أحجام (responsive images: srcset)</li>
+                                <li>استخدم WebP حيث أمكن</li>
+                                <li>ضغط: ضغط صور + lazy-loading للصور خارج الشاشة</li>
+                                <li>الفيديو: استخدم البث (streaming) أو تضمين من منصات CDN</li>
+                                <li>قدم poster image لمنع layout shift</li>
+                                <li>تقليل عدد الطلبات: sprites/icons font أو SVGs مضغوطة</li>
+                                <li>حافظ على LCP منخفض (<2.5s ideal)، وتجنب CLS عالي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">الانيميشن والايقونات</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>مبدأ: الحركة لأغراض دلالة (affordance)، لا للزينة فقط</p>
+                            
+                            <h6>قواعد:</h6>
+                            <ul>
+                                <li>زمن الحركة: 100–300ms غالبًا</li>
+                                <li>easing: استخدم منحنيات اعتدال (ease-out) لـ micro-interactions</li>
+                                <li>دعم prefer-reduced-motion: اعمل نسخة بدون حركة للمستخدمين الذين يطلبون ذلك</li>
+                                <li>استخدم أيقونات مفهومة وواضحة، تجنّب أيقونات مبهمة</li>
+                                <li>حافظ على ثبات النمط وحجمها</li>
+                            </ul>
+                            
+                            <p class="mt-3">مثال: عند حفظ، حوّل زر "حفظ" إلى أيقونة تحميل ثم علامة صح</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">توحيد التصميم والألوان والمكونات</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>لماذا Design System؟</h6>
+                            <ul>
+                                <li>يقلل الجهد، يسرّع التطوير، يحافظ على الاتساق</li>
+                            </ul>
+                            
+                            <h6 class="mt-3">مكوّنات أساسية:</h6>
+                            <ul>
+                                <li>ألوان، طوابير ألوان (palettes)</li>
+                                <li>أحجام خطوط، أزرار، حقول، بطاقات، أيقونات</li>
+                                <li>وثق القرار: متى نستخدم Primary vs Secondary button</li>
+                                <li>نظام ألوان: تأكد من تباين كافٍ (WCAG 4.5:1 للـ normal text)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="900">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">أماكن وضع الأزرار</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>مبدأ: أهم زر (Primary) واضح وموقعه متوقع</li>
+                                <li>للواجهات العربية (RTL): ضع الـPrimary قرب نقطة بداية القراءة (عادة إلى اليمين)</li>
+                                <li>اتبع نمط المنصة (web/mobile)</li>
+                                <li>حوار/مودال: ترتيب الأزرار يجب أن يكون متسقًا</li>
+                                <li>Primary أكبر أو ملون</li>
+                                <li>ترك مسافة كافية بين Primary و Secondary لتفادي الضغط الخاطئ</li>
+                                <li>تجمع الأزرار المتعلقة ببعضها معًا بصريًا</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">توضيح سبب الخطأ/النجاح</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>اشرح السبب بإيجاز: "فشل الدفع لأن بطاقة الائتمان انتهت صلاحيتها — حدّث تاريخ الانتهاء"</li>
+                                <li>قدم خطوات تالية: زر "تحديث البطاقة" أو "تواصل معنا"</li>
+                                <li>سجّل الأخطاء: وأظهر رمز مرجعي للمستخدم إذا تواصل مع الدعم (مثلاً: رقم الخطأ #2457)</li>
+                            </ul>
+                            
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-lightbulb ms-2"></i>
+                                <strong>نصيحة:</strong> لا تجعل المستخدم يترك الواجهة محبطًا — وضّح له ما حدث وكيف يصلحه
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dark/Light Mode Section -->
+    <section id="dark-light" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">شرح الوضع الداكن والوضع الفاتح</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>الوضع الداكن (Dark Mode) والوضع الفاتح (Light Mode) هما ببساطة نسختان من واجهة التطبيق/الموقع تختلفان في الألوان الأساسية: الخلفيات، النصوص، الأسطح، والحدود. الفكرة إن المستخدم يقدر يختار النمط اللي أحسن لقرائته أو لذوقه أو لظروف الإضاءة.</p>
+                            
+                            <h4 class="mt-4">ليه مهمان؟</h4>
+                            <ul>
+                                <li>راحة العين: الوضع الداكن يقلل إجهاد العين في البيئات المظلمة</li>
+                                <li>تركيز بصري: المحتويات البارزة بتظهر أحسن في context معين</li>
+                                <li>توفير طاقة (جزئياً): على شاشات OLED، البكسلات السوداء تطفأ وتوفّر بطارية</li>
+                                <li>تجربة شخصية: المستخدمين بيحبوا الاختيار، وبعضهم يفضل الداكن طول الوقت</li>
+                                <li>Accessibility: بعض المستخدمين لديهم حساسية للسطوع؛ الداكن بيساعدهم</li>
+                            </ul>
+                            
+                            <h4 class="mt-4">قواعد واحتياطات أساسية</h4>
+                            <ul>
+                                <li>لا تستخدم اللون فقط كدليل — ضيف أيقونات أو نص لتمييز الحالات</li>
+                                <li>تباين كافٍ: حتى في الداكن لازم النص يكون واضح</li>
+                                <li>متوازن مش أسود مطلق: في الداكن استخدم near-black (#0B0F11 مثلاً) بدل #000</li>
+                                <li>لا تعكس كل شيء حرفيًا: ليس المطلوب قلب الألوان فحسب</li>
+                                <li>صور وأيقونات: قد تحتاج نسخ بديلة للصور واللوجو</li>
+                                <li>خطوط وظلال: الظلال في الداكن تحتاج أن تكون أخف أو تستخدم توهج داخلي</li>
+                                <li>حساسية الحركة: لو عندك أنيميشن كبيرة خذ بعين الاعتبار reduced-motion</li>
+                            </ul>
+                            
+                            <h4 class="mt-4">عناصر يجب تعديلها بين الداكن والفاتح</h4>
+                            <ul>
+                                <li>خلفيات (Backgrounds / Surfaces): light mode: أبيض/رمادي فاتح — dark mode: near-black / dark-gray</li>
+                                <li>نصوص (Text): light: dark-gray/black — dark: off-white/very-light-gray</li>
+                                <li>حدود وفواصل (Borders/Dividers): أخف في الداكن</li>
+                                <li>ظلال (Shadows / Elevation): في الفاتح: ظلال واضحة. في الداكن: استخدم glow أو زيادة التباين</li>
+                                <li>ألوان الحالة (Alerts, Success, Error): حافظ على نفس الدلالة، لكن اختبر التباين</li>
+                                <li>صور/Icons: أيقونات متجهية (SVG) أسهل لأن ممكن تغيير stroke/fill ديناميكيًا</li>
+                            </ul>
+                            
+                            <h4 class="mt-4">مثال كود CSS بسيط</h4>
+                            <div class="code-block">
+:root {
+  --bg-primary: #ffffff;
+  --surface: #f7f8fa;
+  --text-primary: #0b0b0b;
+  --muted: #6b7280;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0b0f13; /* near-black */
+    --surface: #0f1619;
+    --text-primary: #e6eef3;
+    --muted: #9aa3aa;
+    --accent: #4ea8ff;
+  }
+}
+
+/* استخدام المتغيرات */
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+.card {
+  background: var(--surface);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+                            </div>
+                            
+                            <h4 class="mt-4">أمثلة توضيحية</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="light-mode-example">
+                                        <h5>تطبيق دردشة (وضع فاتح)</h5>
+                                        <p>الوضع الفاتح أفضل للقراءة في النهار</p>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="theme-toggle">
+                                                <div class="theme-toggle-icon"><i class="fas fa-sun"></i></div>
+                                            </div>
+                                            <span>فاتح</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dark-mode-example">
+                                        <h5>تطبيق دردشة (وضع داكن)</h5>
+                                        <p>الوضع الداكن أفضل للقراءة في الليل</p>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="theme-toggle dark">
+                                                <div class="theme-toggle-icon"><i class="fas fa-moon"></i></div>
+                                            </div>
+                                            <span>داكن</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">قائمة فحص سريعة قبل الإطلاق</h4>
+                            <ul>
+                                <li>احترام prefers-color-scheme افتراضيًا؟</li>
+                                <li>زر تبديل واضح ومحفوظ؟</li>
+                                <li>تباين نص >= معايير الوصول (WCAG)؟</li>
+                                <li>صور/لوجو مختبرة في الوضعين؟</li>
+                                <li>عناصر واجهة مثل الأزرار/الحواف مرئية ومميزة؟</li>
+                                <li>حالات الرسائل (error/success/warning) واضحة؟</li>
+                                <li>اختبرت الشاشة على شاشات OLED وLCD؟</li>
+                                <li>تحققت من reduced-motion وتأثير الانتقالات؟</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SaaS Dashboard Section -->
+    <section id="saas-dashboard" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">شرح معنى SaaS Dashboard</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>ما هو SaaS Dashboard؟</h4>
+                            <p>لوحة تحكم برمجية (Software-as-a-Service) تعرض للمستخدمين معلومات وبيانات وادوات تحكّم في الخدمة — غالبًا مركّزة على مقاييس (KPIs)، تقارير، وإجراءات سريعة لإدارة الحساب/المنتج.</p>
+                            
+                            <h4 class="mt-4">دور الـUI/UX في SaaS Dashboard</h4>
+                            <ul>
+                                <li>ترتيب المعلومات: تحويل بيانات معقدة إلى واجهة سهلة الفهم</li>
+                                <li>تسهيل اتخاذ القرار: عرض الـKPIs والأرقام التي تساعد المستخدم على اتخاذ إجراء سريع</li>
+                                <li>تسلسل الرؤية: من أهم إلى أقل أهمية (visual hierarchy)</li>
+                                <li>توفير فلترة وتحكم مرن: Users must filter, group, download</li>
+                                <li>الأداء والاستجابة: لوحات مليانة بيانات قد تكون بطيئة — UX يحسن التحميل، skeletons، caching</li>
+                                <li>صلاحيات وأمان: تصميم نظام أدوار (roles) وطرق عرض مختلفة بحسب الصلاحية</li>
+                            </ul>
+                            
+                            <h4 class="mt-4">خطوات عملية لتصميم SaaS Dashboard</h4>
+                            <ol>
+                                <li>افهم المستخدمين والـJobs-to-be-done: من هم؟ ماذا يحتاجون أن يَعْرِفوا بسرعة؟</li>
+                                <li>حدد KPIs الأساسية لكل Persona</li>
+                                <li>بناء الـInformation Architecture: ماذا يظهر في أعلى الصفحة (top), ماذا في الجهة الجانبية</li>
+                                <li>اختيار التصورات البيانية المناسبة: خطي للاتجاهات الزمنية، أعمدة للمقارنة، pie للقِيم النسبية محدودة</li>
+                                <li>التفاعلات: drill-down، hover tooltips، time-range selector</li>
+                                <li>أداء: lazy loading، cache، backend pagination، pre-aggregations</li>
+                                <li>توافق وRTL: لو المستخدم عربي، مرآة كل شيء وتحقق من اتجاه النص والمحاذاة</li>
+                                <li>اختبار مع مستخدمين حقيقيين: تحقق من أن الواجهة تقود لاتخاذ القرارات المرادة</li>
+                            </ol>
+                            
+                            <h4 class="mt-4">مكونات مهمة في أي SaaS Dashboard</h4>
+                            <ul>
+                                <li>Header: التاريخ، اسم الحساب، زر التحديث</li>
+                                <li>KPI cards: أرقام سريعة</li>
+                                <li>Charts: line, bar, area, heatmap</li>
+                                <li>Table data: قابلة للفلترة والبحث</li>
+                                <li>Activity feed / logs</li>
+                                <li>Controls: range picker، export، share</li>
+                                <li>Permissions panel</li>
+                            </ul>
+                            
+                            <h4 class="mt-4">أمثلة توضيحية للـSaaS Dashboards</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">لوحة مبيعات (Sales Dashboard)</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>مقاييس: إجمالي المبيعات، معدل التحويل، متوسط قيمة الصفقة</li>
+                                                <li>UX: sparkline للاتجاهات، فلتر حسب المنطقة والزمن، drill-down على العملاء</li>
+                                                <li>تحدي UX: عرض معدل التحويل بدون تشويش — حل: استخدم line chart مع نقاط حرجة قابلة للنقر</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">لوحة تحليلات المستخدم</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>مقاييس: DAU/MAU، retention، funnel</li>
+                                                <li>UX: funnels مرئية، cohort analysis، export CSV</li>
+                                                <li>تحدي: ظهور بيانات كبيرة — حل: precomputed cohorts & pagination</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">لوحة دعم العملاء</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>مقاييس: تذاكر مفتوحة، متوسط زمن الاستجابة، تصنيف رضا العملاء</li>
+                                                <li>UX: قائمة تذاكر قابلة للفلترة حسب الأولوية، quick actions للرد</li>
+                                                <li>تحدي: سرعة الوصول للتذكرة المهمة — حل: shortcuts وview "Hot tickets"</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">لوحة DevOps / Monitoring</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>مقاييس: uptime, error rate, response time</li>
+                                                <li>UX: real-time charts، alerts، ability to acknowledge incidents</li>
+                                                <li>تحدي: لا تغمر المستخدم بتنبيهات — حل: thresholds وaggregation</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">قائمة فحص سريعة لتصميم SaaS Dashboard</h4>
+                            <ul>
+                                <li>هل الKPIs واضحة في أول شاشة؟</li>
+                                <li>هل المستخدم يستطيع فلترة البيانات بسرعة؟</li>
+                                <li>هل الرسومات قابلة للتفسير بدون شرح طويل؟</li>
+                                <li>هل الأداء مناسب (skeletons, lazy load)؟</li>
+                                <li>هل الألوان ذات تباين كافٍ؟</li>
+                                <li>هل النسخة الـRTL صحيحة؟</li>
+                                <li>هل هناك حالة فارغة (empty states) مفيدة؟</li>
+                                <li>هل الأذونات والتحكم بالوصول مهيئة؟</li>
+                                <li>هل يمكن التصدير والطباعة بسهولة؟</li>
+                                <li>هل خطوات الاستجابة عند الخطأ واضحة للمستخدم؟</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">مواقع أخرى تساعدك في التصميم UI/UX</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5 class="card-title">المصادر التعليمية والمقالات</h5>
+                            <ul class="text-start">
+                                <li>Nielsen Norman Group (NN/g) — أساسيات بحث UX</li>
+                                <li>UX Collective (Medium)</li>
+                                <li>Smashing Magazine</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <h5 class="card-title">مراجع واجهات وأمثلة</h5>
+                            <ul class="text-start">
+                                <li>Dribbble, Behance — إلهام بصري</li>
+                                <li>Mobbin, Pttrns, UI-Patterns — أنماط واجهات متوافقة مع الموبايل</li>
+                                <li>Awwwards — واجهات متميزة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h5 class="card-title">أدوات تصميم وتعاون</h5>
+                            <ul class="text-start">
+                                <li>Figma (Community), Adobe XD, Sketch</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">مواقع لاختبار المستخدم/تحليلات</h5>
+                            <ul class="text-start">
+                                <li>UsabilityHub, Hotjar, Maze, Lookback</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h5 class="card-title">مكتبات ومبادئ تصميم</h5>
+                            <ul class="text-start">
+                                <li>Material Design (material.io)</li>
+                                <li>Human Interface Guidelines (Apple)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-icons"></i>
+                            </div>
+                            <h5 class="card-title">مكتبات أيقونات وموارد</h5>
+                            <ul class="text-start">
+                                <li>Feather Icons, Font Awesome, Icons8</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h5 class="card-title">مواقع لتحسين الأداء</h5>
+                            <ul class="text-start">
+                                <li>web.dev, Lighthouse، Google PageSpeed Insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h5 class="card-title">الذكاء الاصطناعي كمساعد</h5>
+                            <ul class="text-start">
+                                <li>توليد أفكار للواجهات (moodboards، variations)</li>
+                                <li>كتابة microcopy، رسائل الخطأ، وصف الميزات</li>
+                                <li>تلخيص أبحاث المستخدم أو نتائج مقابلات</li>
+                                <li>إنشاء صور/أصول أولية وتحويل النص إلى تصميمات مبدئية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="900">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h5 class="card-title">ماذا بعد تعلم UI/UX</h5>
+                            <ul class="text-start">
+                                <li>Product Designer / UI Designer</li>
+                                <li>UX Researcher</li>
+                                <li>Interaction Designer / Motion Designer</li>
+                                <li>Design Systems Engineer / Front-end Dev</li>
+                                <li>UX Content Designer / Microcopy Specialist</li>
+                                <li>Freelance / مستقل أو تأسيس استوديو</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="examples" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">أمثلة توضيحية عامة</h2>
+            <p class="text-center mb-5" data-aos="fade-up">متدرجة من السهل للصعب</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1 — سهل</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-easy">سهل</span>
+                            <p><strong>خطأ بسيط في حقل الإيميل:</strong></p>
+                            <p>يظهر تحذير تحت الحقل فور الخروج بدون @ + مثال الشكل الصحيح.</p>
+                            <div class="alert alert-danger mt-2">
+                                <i class="fas fa-exclamation-circle ms-2"></i>
+                                البريد الإلكتروني مش صحيح — حاول example@domain.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2 — متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">متوسط</span>
+                            <p><strong>نموذج متعدد الخطوات (multi-step):</strong></p>
+                            <p>التحقق لحظيًا في كل خطوة، والانتقال لا يتم حتى تصحح الأخطاء.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">الخطوة 1 من 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3 — متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">متوسط</span>
+                            <p><strong>رفع ملف كبير:</strong></p>
+                            <p>عرض شريط تقدم وشرح الحد الأقصى لحجم الملف والتحقق من نوع الملف قبل الرفع.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+                            </div>
+                            <small class="text-muted">الحد الأقصى: 10MB. الأنواع المدعومة: JPG, PNG, PDF</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4 — صعب</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب</span>
+                            <p><strong>لوحة تحكم SaaS فيها بيانات حية:</strong></p>
+                            <p>skeleton loaders أثناء تحميل البيانات + تحديث تلقائي مع مؤشر "آخر تحديث".</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <small>آخر تحديث: قبل 5 دقائق</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5 — صعب</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب</span>
+                            <p><strong>تجربة RTL/Localization:</strong></p>
+                            <p>مرآة كل ترتيب الأزرار والنصوص، تأكد من تناسب النصوص العربية مع المسافات والأيقونات.</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn btn-outline-primary btn-sm">السابق</button>
+                                <button class="btn btn-primary btn-sm">التالي</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">10 اختبارات - أسئلة اختيار من متعدد</h2>
+            <p class="text-center mb-5" data-aos="fade-up">اِمتحن نفسك</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="quiz-container" data-aos="fade-up">
+                        <div id="quiz-content">
+                            <!-- Quiz content will be dynamically generated -->
+                        </div>
+                        
+                        <div class="quiz-navigation">
+                            <button id="prev-btn" class="btn btn-outline-primary" disabled>
+                                <i class="fas fa-arrow-right me-2"></i> السابق
+                            </button>
+                            <span id="question-counter">1 / 10</span>
+                            <button id="next-btn" class="btn btn-primary">
+                                التالي <i class="fas fa-arrow-left ms-2"></i>
+                            </button>
+                        </div>
+                        
+                        <div id="quiz-result" class="quiz-result">
+                            <div class="result-score" id="score-display">0/10</div>
+                            <h3>نتيجة الاختبار</h3>
+                            <p id="result-message"></p>
+                            <button id="restart-quiz" class="btn btn-primary mt-3">
+                                إعادة الاختبار <i class="fas fa-redo ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Topics Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">العناوين الرئيسية للبحث أكثر</h2>
+            <p class="text-center mb-5" data-aos="fade-up">للحصول على معلومات أكثر</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h5 class="card-title">تصميم أنظمة Design Systems</h5>
+                            <p class="card-text">Tokens, Component Libraries</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-universal-access"></i>
+                            </div>
+                            <h5 class="card-title">مبادئ قابلية الوصول</h5>
+                            <p class="card-text">Accessibility / WCAG</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h5 class="card-title">تحليل البيانات للتصميم</h5>
+                            <p class="card-text">Product Analytics, Cohort Analysis</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h5 class="card-title">تصميم واجهات RTL</h5>
+                            <p class="card-text">Internationalization (i18n)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h5 class="card-title">تصميم التفاعلات</h5>
+                            <p class="card-text">Motion Design</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h5 class="card-title">UX Research Methods</h5>
+                            <p class="card-text">interviews, surveys, usability tests</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h5 class="card-title">Performance UX</h5>
+                            <p class="card-text">LCP, CLS, TTFB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h5 class="card-title">Data Visualization</h5>
+                            <p class="card-text">Best Practices</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="900">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h5 class="card-title">DesignOps</h5>
+                            <p class="card-text">تنظيم فرق التصميم والتعاون مع التطوير</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-pen"></i>
+                            </div>
+                            <h5 class="card-title">كتابة Microcopy</h5>
+                            <p class="card-text">Content Strategy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h5 class="card-title">تصميم SaaS</h5>
+                            <p class="card-text">مقاييس الأعمال وإدارة المستخدمين</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h5 class="card-title">AI-assisted Design</h5>
+                            <p class="card-text">Workflows وEthics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">دليل تحسين تجربة المستخدم</h3>
+                    <p>موقع تفاعلي متخصص في تصميم واجهات المستخدم وتجربة المستخدم (UI/UX) لتقديم محتوى تعليمي احترافي.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">روابط سريعة</h5>
+                    <a href="#ux-tips" class="footer-link">نصائح تحسين UX</a>
+                    <a href="#dark-light" class="footer-link">الوضع الداكن والفاتح</a>
+                    <a href="#saas-dashboard" class="footer-link">لوحات تحكم SaaS</a>
+                    <a href="#resources" class="footer-link">موارد التصميم</a>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">أقسام الموقع</h5>
+                    <a href="#examples" class="footer-link">أمثلة</a>
+                    <a href="#quiz" class="footer-link">الاختبار</a>
+                    <a href="#" class="footer-link">المدونة</a>
+                    <a href="#" class="footer-link">اتصل بنا</a>
+                </div>
+                
+                <!-- <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">تابعنا</h5>
+                    <p>اشترك في نشرتنا البريدية للحصول على أحدث المقالات والمصادر في مجال تصميم UI/UX.</p>
+                    <div class="input-group mt-3">
+                        <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
+                        <button class="btn btn-light" type="button">اشترك</button>
+                    </div>
+                </div>
+            </div> -->
+            
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 دليل تحسين تجربة المستخدم. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="next-site-btn">
+                        الانتقال للموقع التالي <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Quiz data
+        const quizData = [
+            {
+                question: "ما هو أفضل مكان لوضع رسالة خطأ خاصة بحقل إدخال في واجهة RTL؟",
+                options: [
+                    "أعلى الصفحة",
+                    "تحت الحقل أو بجواره من جهة القراءة (اليمين)",
+                    "أسفل الـfooter",
+                    "رسالة فقط في الـconsole"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "أفضل ممارسة لمسافات التصميم (spacing) هي:",
+                options: [
+                    "استخدام مسافات عشوائية حسب الحاجة",
+                    "استخدام grid ثابت مثل 8px baseline",
+                    "جعل كل المسافات 16px فقط",
+                    "المسافات لا تهم طالما التصميم جميل"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "عند كتابة رسالة خطأ للمستخدم، ما الذي يجب تضمنه؟",
+                options: [
+                    "كود الخطأ فقط",
+                    "شرح السبب + كيفية الإصلاح",
+                    "طلب إعادة تحميل الصفحة بدون شرح",
+                    "لا تكتب أي شيء"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "أي من هذه ألوان يُستخدم عادة لرسائل النجاح؟",
+                options: [
+                    "أحمر",
+                    "أصفر",
+                    "أخضر",
+                    "أزرق"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "أفضل زمن للحركات الصغيرة (micro-interactions) هو:",
+                options: [
+                    "5 ثواني",
+                    "100–300 مللي ثانية",
+                    "2 دقيقة",
+                    "لا للحركات أبداً"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "في لوحة تحكم SaaS، أي نوع الرسم مناسب لعرض اتجاه المبيعات عبر الزمن؟",
+                options: [
+                    "Pie chart",
+                    "Line chart",
+                    "Icon list",
+                    "Single large number"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "ما المقصود بـ 'skeleton loader'؟",
+                options: [
+                    "صورة حقيقية للعظام",
+                    "إطار فارغ يظهر أثناء تحميل المحتوى",
+                    "نوع من الثيمات الداكنة",
+                    "نظام تحكم في الصلاحيات"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "في تطبيق باللغة العربية (RTL) أين يجب أن يكون زر الإجراء الأساسي في نموذج؟",
+                options: [
+                    "في المكان العشوائي",
+                    "قرب بداية القراءة (عادة اليمين)",
+                    "في الـfooter دائماً",
+                    "إلى اليسار دائماً"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "لماذا نستخدم lazy-loading للصور؟",
+                options: [
+                    "لتجميل الصفحة فقط",
+                    "لتحسين سرعة التحميل وتقليل استهلاك البيانات",
+                    "لزيادة استهلاك الذاكرة",
+                    "لأنه مطلوب من المتصفح فقط"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "أي مما يلي مهم لتصميم رسائل النجاح/إنذار؟",
+                options: [
+                    "اللون فقط كدليل",
+                    "نص واضح + أيقونة + إمكانية الإغلاق",
+                    "إبقاؤها كبيرة ومشوشة",
+                    "عدم إظهار أي رسالة"
+                ],
+                correctAnswer: 1
+            }
+        ];
+        
+        // Quiz variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = [];
+        
+        // DOM elements
+        const quizContent = document.getElementById('quiz-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const questionCounter = document.getElementById('question-counter');
+        const quizResult = document.getElementById('quiz-result');
+        const scoreDisplay = document.getElementById('score-display');
+        const resultMessage = document.getElementById('result-message');
+        const restartQuizBtn = document.getElementById('restart-quiz');
+        
+        // Initialize quiz
+        function initQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            quizResult.style.display = 'none';
+            quizContent.style.display = 'block';
+            showQuestion();
+            updateButtons();
+        }
+        
+        // Show current question
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                optionsHTML += `
+                    <div class="quiz-option" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            quizContent.innerHTML = `
+                <div class="quiz-question">${currentQuestion + 1}. ${question.question}</div>
+                <div class="quiz-options">
+                    ${optionsHTML}
+                </div>
+            `;
+            
+            // Add click event to options
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.quiz-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Store user answer
+                    userAnswers[currentQuestion] = parseInt(this.dataset.index);
+                });
+            });
+            
+            // Restore previous answer if exists
+            if (userAnswers[currentQuestion] !== undefined) {
+                document.querySelectorAll('.quiz-option')[userAnswers[currentQuestion]].classList.add('selected');
+            }
+            
+            // Update question counter
+            questionCounter.textContent = `${currentQuestion + 1} / ${quizData.length}`;
+        }
+        
+        // Update navigation buttons
+        function updateButtons() {
+            prevBtn.disabled = currentQuestion === 0;
+            
+            if (currentQuestion === quizData.length - 1) {
+                nextBtn.innerHTML = 'إنهاء الاختبار <i class="fas fa-check ms-2"></i>';
+            } else {
+                nextBtn.innerHTML = 'التالي <i class="fas fa-arrow-left ms-2"></i>';
+            }
+        }
+        
+        // Show quiz results
+        function showResults() {
+            quizContent.style.display = 'none';
+            quizResult.style.display = 'block';
+            
+            // Calculate score
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizData[index].correctAnswer) {
+                    score++;
+                }
+            });
+            
+            // Display score
+            scoreDisplay.textContent = `${score} / ${quizData.length}`;
+            
+            // Display message based on score
+            let message = '';
+            if (score >= 8) {
+                message = 'ممتاز! لديك معرفة ممتازة بتحسين تجربة المستخدم.';
+            } else if (score >= 6) {
+                message = 'جيد جداً! لديك معرفة جيدة ولكن يمكنك تحسينها في بعض المجالات.';
+            } else if (score >= 4) {
+                message = 'متوسط. تحتاج إلى المزيد من التعلم وال practice في مجال تحسين تجربة المستخدم.';
+            } else {
+                message = 'مبتدئ. نوصي بدراسة المواد المقدمة في الموقع بشكل أعمق.';
+            }
+            
+            resultMessage.textContent = message;
+        }
+        
+        // Event listeners
+        prevBtn.addEventListener('click', function() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+                updateButtons();
+            }
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                updateButtons();
+            } else {
+                showResults();
+            }
+        });
+        
+        restartQuizBtn.addEventListener('click', initQuiz);
+        
+        // Initialize quiz on page load
+        initQuiz();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
